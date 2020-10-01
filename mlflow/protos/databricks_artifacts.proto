@@ -1,4 +1,4 @@
-syntax = "proto2";
+syntax = "proto3";
 
 package mlflow;
 
@@ -49,11 +49,11 @@ enum ArtifactCredentialType {
 
   // The credential is an Azure Shared Access Signature URI. For more information, see
   // https://docs.microsoft.com/en-us/azure/storage/common/storage-sas-overview
-  AZURE_SAS_URI = 1;
+  AZURE_SAS_URI = 0;
 
   // The credential is an AWS Presigned URL. For more information, see
   // https://docs.aws.amazon.com/AmazonS3/latest/dev/ShareObjectPreSignedURL.html
-  AWS_PRESIGNED_URL = 2;
+  AWS_PRESIGNED_URL = 1;
 
 }
 
@@ -61,22 +61,22 @@ message ArtifactCredentialInfo {
 
   // The ID of the MLflow Run containing the artifact that can be accessed
   // with the credential
-  optional string run_id = 1;
+  string run_id = 1;
 
   // The path, relative to the Run's artifact root location, of the artifact
   // that can be accessed with the credential
-  optional string path = 2;
+  string path = 2;
 
   // The signed URI credential that provides access to the artifact
-  optional string signed_uri = 3;
+  string signed_uri = 3;
 
   message HttpHeader {
 
     // The HTTP header name
-    optional string name = 1;
+    string name = 1;
 
     // The HTTP header value
-    optional string value = 2;
+    string value = 2;
 
   }
 
@@ -86,7 +86,7 @@ message ArtifactCredentialInfo {
 
   // The type of the signed credential URI (e.g., an AWS presigned URL
   // or an Azure Shared Access Signature URI)
-  optional ArtifactCredentialType type = 5;
+  ArtifactCredentialType type = 5;
 
 }
 
@@ -95,16 +95,16 @@ message GetCredentialsForRead {
   option (scalapb.message).extends = "com.databricks.mlflow.api.MlflowTrackingMessage";
 
   // The ID of the MLflow Run for which to fetch artifact read credentials
-  optional string run_id = 1 [(validate_required) = true];
+  string run_id = 1 [(validate_required) = true];
 
   // The artifact path, relative to the Run's artifact root location, for which to
   // fetch artifact read credentials
-  optional string path = 2 [(validate_required) = true];
+  string path = 2 [(validate_required) = true];
 
   message Response {
 
     // Credentials for reading from the specified artifact location
-    optional ArtifactCredentialInfo credentials = 1;
+    ArtifactCredentialInfo credentials = 1;
 
   }
 }
@@ -114,16 +114,16 @@ message GetCredentialsForWrite {
   option (scalapb.message).extends = "com.databricks.mlflow.api.MlflowTrackingMessage";
 
   // The ID of the MLflow Run for which to fetch artifact write credentials
-  optional string run_id = 1 [(validate_required) = true];
+  string run_id = 1 [(validate_required) = true];
 
   // The artifact path, relative to the Run's artifact root location, for which to
   // fetch artifact write credentials
-  optional string path = 2 [(validate_required) = true];
+  string path = 2 [(validate_required) = true];
 
   message Response {
 
     // Credentials for writing to the specified artifacts location
-    optional ArtifactCredentialInfo credentials = 1;
+    ArtifactCredentialInfo credentials = 1;
 
   }
 }

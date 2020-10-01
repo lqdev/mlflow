@@ -22,9 +22,9 @@ from . import databricks_pb2 as databricks__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='databricks_artifacts.proto',
   package='mlflow',
-  syntax='proto2',
+  syntax='proto3',
   serialized_options=_b('\n\037com.databricks.api.proto.mlflow\220\001\001\240\001\001\342?\002\020\001'),
-  serialized_pb=_b('\n\x1a\x64\x61tabricks_artifacts.proto\x12\x06mlflow\x1a\x15scalapb/scalapb.proto\x1a\x10\x64\x61tabricks.proto\"\xdf\x01\n\x16\x41rtifactCredentialInfo\x12\x0e\n\x06run_id\x18\x01 \x01(\t\x12\x0c\n\x04path\x18\x02 \x01(\t\x12\x12\n\nsigned_uri\x18\x03 \x01(\t\x12:\n\x07headers\x18\x04 \x03(\x0b\x32).mlflow.ArtifactCredentialInfo.HttpHeader\x12,\n\x04type\x18\x05 \x01(\x0e\x32\x1e.mlflow.ArtifactCredentialType\x1a)\n\nHttpHeader\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"\xe3\x01\n\x15GetCredentialsForRead\x12\x14\n\x06run_id\x18\x01 \x01(\tB\x04\xf8\x86\x19\x01\x12\x12\n\x04path\x18\x02 \x01(\tB\x04\xf8\x86\x19\x01\x1a?\n\x08Response\x12\x33\n\x0b\x63redentials\x18\x01 \x01(\x0b\x32\x1e.mlflow.ArtifactCredentialInfo:_\xe2?(\n&com.databricks.rpc.RPC[$this.Response]\xe2?1\n/com.databricks.mlflow.api.MlflowTrackingMessage\"\xe4\x01\n\x16GetCredentialsForWrite\x12\x14\n\x06run_id\x18\x01 \x01(\tB\x04\xf8\x86\x19\x01\x12\x12\n\x04path\x18\x02 \x01(\tB\x04\xf8\x86\x19\x01\x1a?\n\x08Response\x12\x33\n\x0b\x63redentials\x18\x01 \x01(\x0b\x32\x1e.mlflow.ArtifactCredentialInfo:_\xe2?(\n&com.databricks.rpc.RPC[$this.Response]\xe2?1\n/com.databricks.mlflow.api.MlflowTrackingMessage*B\n\x16\x41rtifactCredentialType\x12\x11\n\rAZURE_SAS_URI\x10\x01\x12\x15\n\x11\x41WS_PRESIGNED_URL\x10\x02\x32\xe2\x02\n DatabricksMlflowArtifactsService\x12\x9b\x01\n\x15getCredentialsForRead\x12\x1d.mlflow.GetCredentialsForRead\x1a&.mlflow.GetCredentialsForRead.Response\";\xf2\x86\x19\x37\n3\n\x03GET\x12&/mlflow/artifacts/credentials-for-read\x1a\x04\x08\x02\x10\x00\x10\x03\x12\x9f\x01\n\x16getCredentialsForWrite\x12\x1e.mlflow.GetCredentialsForWrite\x1a\'.mlflow.GetCredentialsForWrite.Response\"<\xf2\x86\x19\x38\n4\n\x03GET\x12\'/mlflow/artifacts/credentials-for-write\x1a\x04\x08\x02\x10\x00\x10\x03\x42,\n\x1f\x63om.databricks.api.proto.mlflow\x90\x01\x01\xa0\x01\x01\xe2?\x02\x10\x01')
+  serialized_pb=_b('\n\x1a\x64\x61tabricks_artifacts.proto\x12\x06mlflow\x1a\x15scalapb/scalapb.proto\x1a\x10\x64\x61tabricks.proto\"\xdf\x01\n\x16\x41rtifactCredentialInfo\x12\x0e\n\x06run_id\x18\x01 \x01(\t\x12\x0c\n\x04path\x18\x02 \x01(\t\x12\x12\n\nsigned_uri\x18\x03 \x01(\t\x12:\n\x07headers\x18\x04 \x03(\x0b\x32).mlflow.ArtifactCredentialInfo.HttpHeader\x12,\n\x04type\x18\x05 \x01(\x0e\x32\x1e.mlflow.ArtifactCredentialType\x1a)\n\nHttpHeader\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"\xe3\x01\n\x15GetCredentialsForRead\x12\x14\n\x06run_id\x18\x01 \x01(\tB\x04\xf8\x86\x19\x01\x12\x12\n\x04path\x18\x02 \x01(\tB\x04\xf8\x86\x19\x01\x1a?\n\x08Response\x12\x33\n\x0b\x63redentials\x18\x01 \x01(\x0b\x32\x1e.mlflow.ArtifactCredentialInfo:_\xe2?(\n&com.databricks.rpc.RPC[$this.Response]\xe2?1\n/com.databricks.mlflow.api.MlflowTrackingMessage\"\xe4\x01\n\x16GetCredentialsForWrite\x12\x14\n\x06run_id\x18\x01 \x01(\tB\x04\xf8\x86\x19\x01\x12\x12\n\x04path\x18\x02 \x01(\tB\x04\xf8\x86\x19\x01\x1a?\n\x08Response\x12\x33\n\x0b\x63redentials\x18\x01 \x01(\x0b\x32\x1e.mlflow.ArtifactCredentialInfo:_\xe2?(\n&com.databricks.rpc.RPC[$this.Response]\xe2?1\n/com.databricks.mlflow.api.MlflowTrackingMessage*B\n\x16\x41rtifactCredentialType\x12\x11\n\rAZURE_SAS_URI\x10\x00\x12\x15\n\x11\x41WS_PRESIGNED_URL\x10\x01\x32\xde\x02\n DatabricksMlflowArtifactsService\x12\x99\x01\n\x15getCredentialsForRead\x12\x1d.mlflow.GetCredentialsForRead\x1a&.mlflow.GetCredentialsForRead.Response\"9\xf2\x86\x19\x35\n1\n\x03GET\x12&/mlflow/artifacts/credentials-for-read\x1a\x02\x08\x02\x10\x02\x12\x9d\x01\n\x16getCredentialsForWrite\x12\x1e.mlflow.GetCredentialsForWrite\x1a\'.mlflow.GetCredentialsForWrite.Response\":\xf2\x86\x19\x36\n2\n\x03GET\x12\'/mlflow/artifacts/credentials-for-write\x1a\x02\x08\x02\x10\x02\x42,\n\x1f\x63om.databricks.api.proto.mlflow\x90\x01\x01\xa0\x01\x01\xe2?\x02\x10\x01\x62\x06proto3')
   ,
   dependencies=[scalapb_dot_scalapb__pb2.DESCRIPTOR,databricks__pb2.DESCRIPTOR,])
 
@@ -35,11 +35,11 @@ _ARTIFACTCREDENTIALTYPE = _descriptor.EnumDescriptor(
   file=DESCRIPTOR,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='AZURE_SAS_URI', index=0, number=1,
+      name='AZURE_SAS_URI', index=0, number=0,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='AWS_PRESIGNED_URL', index=1, number=2,
+      name='AWS_PRESIGNED_URL', index=1, number=1,
       serialized_options=None,
       type=None),
   ],
@@ -51,8 +51,8 @@ _ARTIFACTCREDENTIALTYPE = _descriptor.EnumDescriptor(
 _sym_db.RegisterEnumDescriptor(_ARTIFACTCREDENTIALTYPE)
 
 ArtifactCredentialType = enum_type_wrapper.EnumTypeWrapper(_ARTIFACTCREDENTIALTYPE)
-AZURE_SAS_URI = 1
-AWS_PRESIGNED_URL = 2
+AZURE_SAS_URI = 0
+AWS_PRESIGNED_URL = 1
 
 
 
@@ -85,7 +85,7 @@ _ARTIFACTCREDENTIALINFO_HTTPHEADER = _descriptor.Descriptor(
   ],
   serialized_options=None,
   is_extendable=False,
-  syntax='proto2',
+  syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
@@ -131,7 +131,7 @@ _ARTIFACTCREDENTIALINFO = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='type', full_name='mlflow.ArtifactCredentialInfo.type', index=4,
       number=5, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -143,7 +143,7 @@ _ARTIFACTCREDENTIALINFO = _descriptor.Descriptor(
   ],
   serialized_options=None,
   is_extendable=False,
-  syntax='proto2',
+  syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
@@ -174,7 +174,7 @@ _GETCREDENTIALSFORREAD_RESPONSE = _descriptor.Descriptor(
   ],
   serialized_options=None,
   is_extendable=False,
-  syntax='proto2',
+  syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
@@ -211,7 +211,7 @@ _GETCREDENTIALSFORREAD = _descriptor.Descriptor(
   ],
   serialized_options=_b('\342?(\n&com.databricks.rpc.RPC[$this.Response]\342?1\n/com.databricks.mlflow.api.MlflowTrackingMessage'),
   is_extendable=False,
-  syntax='proto2',
+  syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
@@ -242,7 +242,7 @@ _GETCREDENTIALSFORWRITE_RESPONSE = _descriptor.Descriptor(
   ],
   serialized_options=None,
   is_extendable=False,
-  syntax='proto2',
+  syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
@@ -279,7 +279,7 @@ _GETCREDENTIALSFORWRITE = _descriptor.Descriptor(
   ],
   serialized_options=_b('\342?(\n&com.databricks.rpc.RPC[$this.Response]\342?1\n/com.databricks.mlflow.api.MlflowTrackingMessage'),
   is_extendable=False,
-  syntax='proto2',
+  syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
@@ -361,7 +361,7 @@ _DATABRICKSMLFLOWARTIFACTSSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   serialized_start=835,
-  serialized_end=1189,
+  serialized_end=1185,
   methods=[
   _descriptor.MethodDescriptor(
     name='getCredentialsForRead',
@@ -370,7 +370,7 @@ _DATABRICKSMLFLOWARTIFACTSSERVICE = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_GETCREDENTIALSFORREAD,
     output_type=_GETCREDENTIALSFORREAD_RESPONSE,
-    serialized_options=_b('\362\206\0317\n3\n\003GET\022&/mlflow/artifacts/credentials-for-read\032\004\010\002\020\000\020\003'),
+    serialized_options=_b('\362\206\0315\n1\n\003GET\022&/mlflow/artifacts/credentials-for-read\032\002\010\002\020\002'),
   ),
   _descriptor.MethodDescriptor(
     name='getCredentialsForWrite',
@@ -379,7 +379,7 @@ _DATABRICKSMLFLOWARTIFACTSSERVICE = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_GETCREDENTIALSFORWRITE,
     output_type=_GETCREDENTIALSFORWRITE_RESPONSE,
-    serialized_options=_b('\362\206\0318\n4\n\003GET\022\'/mlflow/artifacts/credentials-for-write\032\004\010\002\020\000\020\003'),
+    serialized_options=_b('\362\206\0316\n2\n\003GET\022\'/mlflow/artifacts/credentials-for-write\032\002\010\002\020\002'),
   ),
 ])
 _sym_db.RegisterServiceDescriptor(_DATABRICKSMLFLOWARTIFACTSSERVICE)

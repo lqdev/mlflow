@@ -1,4 +1,4 @@
-syntax = "proto2";
+syntax = "proto3";
 
 import "google/protobuf/descriptor.proto";
 import "scalapb/scalapb.proto";
@@ -13,7 +13,7 @@ option (scalapb.options).flat_package = true;
 extend google.protobuf.FieldOptions {
   // Indicates an overriding visibility for this field. This can only reduce the visibility;
   // a public field in an internal API will not have an effect.
-  optional Visibility visibility = 51310;
+  Visibility visibility = 51310;
 
   // This annotation indicates that certain fields must be supplied for the request to be carried
   // out successfully.
@@ -21,7 +21,7 @@ extend google.protobuf.FieldOptions {
   // go from being optional to required, for backwards compatiblity reasons.
   // Request RPCs are validated automatically prior to processing for required fields, but
   // returned values are not validated in any way.
-  optional bool validate_required = 51311;
+  bool validate_required = 51311;
 
   // Causes the fields within the tagged Message to be inlined into this Message, for the purposes
   // of our JSON API.
@@ -36,7 +36,7 @@ extend google.protobuf.FieldOptions {
   //     "cluster_name" : "Foo"
   //   }
   // Note that this is only applicable to singular Message fields.
-  optional bool json_inline = 51312;
+  bool json_inline = 51312;
 
   // Causes a field which conceptually represents a Map to be serialized as a JSON Map.
   // The given field must be a Message with exactly 2 fields called "key" and "value", where key
@@ -45,7 +45,7 @@ extend google.protobuf.FieldOptions {
   //   [ { "key" : "spark.speculation", "value" : "false" } ]
   // If this field were marked json_map, we would serialize it as
   //   { "spark.speculation" : "false" }
-  optional bool json_map = 51313;
+  bool json_map = 51313;
 
   // The documentation meta data for this field. This gets added automatically when the proto is
   // parsed.
@@ -61,23 +61,23 @@ message DatabricksRpcOptions {
   repeated HttpEndpoint endpoints = 1;
 
   // Indicates which users are allowed to initiate this RPC.
-  optional Visibility visibility = 2;
+  Visibility visibility = 2;
 
   // Complete definition of all error codes (from a statically defined set) which this method
   // may return.
   repeated ErrorCode error_codes = 3;
 
   // If defined, a rate limit will be applied to this RPC for all requests from the API proxy.
-  optional RateLimit rate_limit = 4;
+  RateLimit rate_limit = 4;
 
   // If defined, overrides the default title used for in the API docs. See ProtobufDocGenerator
   // for more info.
-  optional string rpc_doc_title = 5;
+  string rpc_doc_title = 5;
 }
 
 // Note: 51310 is the beginning of the range of proto extension values for use by applications.
 extend google.protobuf.MethodOptions {
-  optional DatabricksRpcOptions rpc = 51310;
+  DatabricksRpcOptions rpc = 51310;
 
   // The documentation metadata.
   // This is not meant to be crafted by hand; this will be automatically generated when parsing
@@ -113,7 +113,7 @@ extend google.protobuf.EnumOptions {
 extend google.protobuf.EnumValueOptions {
   // Indicates an overriding visibility for this field. This can only reduce the visibility;
   // a public field in an internal API will not have an effect.
-  optional Visibility enum_value_visibility = 51310;
+  Visibility enum_value_visibility = 51310;
   // The documentation metadata.
   // This is not meant to be crafted by hand; this will be automatically generated when parsing
   // the proto file.
@@ -122,19 +122,19 @@ extend google.protobuf.EnumValueOptions {
 
 message HttpEndpoint {
   // HTTP method like POST or GET.
-  optional string method = 1 [default = "POST"];
+  string method = 1;
 
   // Conceptual path of the API, like "/clusters" or "/clusters/create". Should start with a slash.
-  optional string path = 2;
+  string path = 2;
 
   // A version like 1.1 which is prepended to the URL (e.g., GET /1.1/clusters).
   // Breaking changes to an RPC must use a different version number.
-  optional ApiVersion since = 3;
+  ApiVersion since = 3;
 }
 
 message ApiVersion {
-  optional int32 major = 1;
-  optional int32 minor = 2;
+  int32 major = 1;
+  int32 minor = 2;
 }
 
 // API rate limits applied to RPCs coming from the API Proxy. The rate limits are applied on a
@@ -142,38 +142,38 @@ message ApiVersion {
 message RateLimit {
   // The maximum burst of API requests allowed for a single endpoint. In the context of the
   // token bucket algorithm, this constant represents the total capacity of the token bucket.
-  optional int64 max_burst = 1;
+  int64 max_burst = 1;
 
   // The maximum sustained request per second limit for a single endpoint. In the context of the,
   // token bucket algorithm, this constant represents the rate at which the token bucket fills.
-  optional int64 max_sustained_per_second = 2;
+  int64 max_sustained_per_second = 2;
 }
 
 // Visibility defines who is allowed to use the RPC.
 enum Visibility {
   // Public indicates visible to both external and internal customers.
-  PUBLIC = 1;
+  PUBLIC = 0;
 
   // Internal is only available to Databricks-internal clients.
-  INTERNAL = 2;
+  INTERNAL = 1;
 
   // Public-undocumented are accessible via public endpoints, but not documented. This is useful
   // for internal clients that depend on public endpoints (e.g. workflows running in the driver).
-  PUBLIC_UNDOCUMENTED = 3;
+  PUBLIC_UNDOCUMENTED = 2;
 }
 
 // A block of documentation that is added to the AST after parsing the original protocol buffer.
 message DocumentationMetadata {
   // The string of documentation attached to this particular item.
-  optional string docstring = 1;
+  string docstring = 1;
   // The string of documentation that is *before* this item. This only makes sense for top-level
   // items such as (top-level) messages, (top-level) enumerations, or services. In all other
   // cases, this string is empty.
-  optional string lead_doc = 2;
+  string lead_doc = 2;
   // The visibility level when the docstring was generated.
   // The documentation extractor builds multiple versions of the documentation, one for each
   // visibility level. The documentation is then generated for each visibility level.
-  optional Visibility visibility = 3;
+  Visibility visibility = 3;
   // The original proto path in the internal representation. This is useful when performing field
   // flattening to figure out what the original field was.
   // One example is ["jobs","Run","original_attempt_run_id"] for jobs.
@@ -181,7 +181,7 @@ message DocumentationMetadata {
   repeated string original_proto_path = 4;
   // The location (line number) of the start of the documentation. This is required to keep the
   // pieces of documentation sorted.
-  optional int32 position = 5;
+  int32 position = 5;
 }
 
 enum ErrorCode {
@@ -190,16 +190,16 @@ enum ErrorCode {
   // instead are due to service issues.
   //
   // Generic internal error occurred.
-  INTERNAL_ERROR = 1;
+  INTERNAL_ERROR = 0;
 
   // An internal system could not be contacted due to a period of unavailability.
-  TEMPORARILY_UNAVAILABLE = 2;
+  TEMPORARILY_UNAVAILABLE = 1;
 
   // Indicates that an IOException has been internally thrown.
-  IO_ERROR = 3;
+  IO_ERROR = 2;
 
   // The request is invalid.
-  BAD_REQUEST = 4;
+  BAD_REQUEST = 3;
 
   //
   // Common application-level error codes, which were caused by the user input but may be returned
@@ -281,7 +281,7 @@ enum ErrorCode {
 
 // Serialization format for DatabricksServiceException.
 message DatabricksServiceExceptionProto {
-  optional ErrorCode error_code = 1;
-  optional string message = 2;
-  optional string stack_trace = 3;
+  ErrorCode error_code = 1;
+  string message = 2;
+  string stack_trace = 3;
 }
