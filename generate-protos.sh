@@ -10,6 +10,7 @@ fi
 PROTOS="mlflow/protos"
 protoc -I="$PROTOS" \
     --python_out="$PROTOS" \
+    --csharp_out="mlflow/csharp" \
     --java_out="mlflow/java/client/src/main/java" \
     "$PROTOS"/databricks.proto \
     "$PROTOS"/service.proto \

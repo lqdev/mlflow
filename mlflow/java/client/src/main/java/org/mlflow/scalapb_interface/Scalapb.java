@@ -26,15 +26,7 @@ public final class Scalapb {
      * If set then it overrides the java_package and package.
      * </pre>
      *
-     * <code>optional string package_name = 1;</code>
-     */
-    boolean hasPackageName();
-    /**
-     * <pre>
-     * If set then it overrides the java_package and package.
-     * </pre>
-     *
-     * <code>optional string package_name = 1;</code>
+     * <code>string package_name = 1;</code>
      */
     java.lang.String getPackageName();
     /**
@@ -42,7 +34,7 @@ public final class Scalapb {
      * If set then it overrides the java_package and package.
      * </pre>
      *
-     * <code>optional string package_name = 1;</code>
+     * <code>string package_name = 1;</code>
      */
     com.google.protobuf.ByteString
         getPackageNameBytes();
@@ -55,18 +47,7 @@ public final class Scalapb {
      * basename is the proto file name without the .proto extension.
      * </pre>
      *
-     * <code>optional bool flat_package = 2;</code>
-     */
-    boolean hasFlatPackage();
-    /**
-     * <pre>
-     * If true, the compiler does not append the proto base file name
-     * into the generated package name. If false (the default), the
-     * generated scala package name is the package_name.basename where
-     * basename is the proto file name without the .proto extension.
-     * </pre>
-     *
-     * <code>optional bool flat_package = 2;</code>
+     * <code>bool flat_package = 2;</code>
      */
     boolean getFlatPackage();
 
@@ -152,27 +133,27 @@ public final class Scalapb {
               done = true;
               break;
             case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000001;
-              packageName_ = bs;
+              java.lang.String s = input.readStringRequireUtf8();
+
+              packageName_ = s;
               break;
             }
             case 16: {
-              bitField0_ |= 0x00000002;
+
               flatPackage_ = input.readBool();
               break;
             }
             case 26: {
-              com.google.protobuf.ByteString bs = input.readBytes();
+              java.lang.String s = input.readStringRequireUtf8();
               if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
                 import_ = new com.google.protobuf.LazyStringArrayList();
                 mutable_bitField0_ |= 0x00000004;
               }
-              import_.add(bs);
+              import_.add(s);
               break;
             }
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -214,17 +195,7 @@ public final class Scalapb {
      * If set then it overrides the java_package and package.
      * </pre>
      *
-     * <code>optional string package_name = 1;</code>
-     */
-    public boolean hasPackageName() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <pre>
-     * If set then it overrides the java_package and package.
-     * </pre>
-     *
-     * <code>optional string package_name = 1;</code>
+     * <code>string package_name = 1;</code>
      */
     public java.lang.String getPackageName() {
       java.lang.Object ref = packageName_;
@@ -234,9 +205,7 @@ public final class Scalapb {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          packageName_ = s;
-        }
+        packageName_ = s;
         return s;
       }
     }
@@ -245,7 +214,7 @@ public final class Scalapb {
      * If set then it overrides the java_package and package.
      * </pre>
      *
-     * <code>optional string package_name = 1;</code>
+     * <code>string package_name = 1;</code>
      */
     public com.google.protobuf.ByteString
         getPackageNameBytes() {
@@ -271,20 +240,7 @@ public final class Scalapb {
      * basename is the proto file name without the .proto extension.
      * </pre>
      *
-     * <code>optional bool flat_package = 2;</code>
-     */
-    public boolean hasFlatPackage() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <pre>
-     * If true, the compiler does not append the proto base file name
-     * into the generated package name. If false (the default), the
-     * generated scala package name is the package_name.basename where
-     * basename is the proto file name without the .proto extension.
-     * </pre>
-     *
-     * <code>optional bool flat_package = 2;</code>
+     * <code>bool flat_package = 2;</code>
      */
     public boolean getFlatPackage() {
       return flatPackage_;
@@ -353,10 +309,10 @@ public final class Scalapb {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (!getPackageNameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, packageName_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (flatPackage_ != false) {
         output.writeBool(2, flatPackage_);
       }
       for (int i = 0; i < import_.size(); i++) {
@@ -371,10 +327,10 @@ public final class Scalapb {
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (!getPackageNameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, packageName_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (flatPackage_ != false) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(2, flatPackage_);
       }
@@ -402,16 +358,10 @@ public final class Scalapb {
       org.mlflow.scalapb_interface.Scalapb.ScalaPbOptions other = (org.mlflow.scalapb_interface.Scalapb.ScalaPbOptions) obj;
 
       boolean result = true;
-      result = result && (hasPackageName() == other.hasPackageName());
-      if (hasPackageName()) {
-        result = result && getPackageName()
-            .equals(other.getPackageName());
-      }
-      result = result && (hasFlatPackage() == other.hasFlatPackage());
-      if (hasFlatPackage()) {
-        result = result && (getFlatPackage()
-            == other.getFlatPackage());
-      }
+      result = result && getPackageName()
+          .equals(other.getPackageName());
+      result = result && (getFlatPackage()
+          == other.getFlatPackage());
       result = result && getImportList()
           .equals(other.getImportList());
       result = result && unknownFields.equals(other.unknownFields);
@@ -425,15 +375,11 @@ public final class Scalapb {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasPackageName()) {
-        hash = (37 * hash) + PACKAGE_NAME_FIELD_NUMBER;
-        hash = (53 * hash) + getPackageName().hashCode();
-      }
-      if (hasFlatPackage()) {
-        hash = (37 * hash) + FLAT_PACKAGE_FIELD_NUMBER;
-        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-            getFlatPackage());
-      }
+      hash = (37 * hash) + PACKAGE_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getPackageName().hashCode();
+      hash = (37 * hash) + FLAT_PACKAGE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getFlatPackage());
       if (getImportCount() > 0) {
         hash = (37 * hash) + IMPORT_FIELD_NUMBER;
         hash = (53 * hash) + getImportList().hashCode();
@@ -572,9 +518,9 @@ public final class Scalapb {
       public Builder clear() {
         super.clear();
         packageName_ = "";
-        bitField0_ = (bitField0_ & ~0x00000001);
+
         flatPackage_ = false;
-        bitField0_ = (bitField0_ & ~0x00000002);
+
         import_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000004);
         return this;
@@ -605,13 +551,7 @@ public final class Scalapb {
         org.mlflow.scalapb_interface.Scalapb.ScalaPbOptions result = new org.mlflow.scalapb_interface.Scalapb.ScalaPbOptions(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
         result.packageName_ = packageName_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
         result.flatPackage_ = flatPackage_;
         if (((bitField0_ & 0x00000004) == 0x00000004)) {
           import_ = import_.getUnmodifiableView();
@@ -667,12 +607,11 @@ public final class Scalapb {
 
       public Builder mergeFrom(org.mlflow.scalapb_interface.Scalapb.ScalaPbOptions other) {
         if (other == org.mlflow.scalapb_interface.Scalapb.ScalaPbOptions.getDefaultInstance()) return this;
-        if (other.hasPackageName()) {
-          bitField0_ |= 0x00000001;
+        if (!other.getPackageName().isEmpty()) {
           packageName_ = other.packageName_;
           onChanged();
         }
-        if (other.hasFlatPackage()) {
+        if (other.getFlatPackage() != false) {
           setFlatPackage(other.getFlatPackage());
         }
         if (!other.import_.isEmpty()) {
@@ -721,17 +660,7 @@ public final class Scalapb {
        * If set then it overrides the java_package and package.
        * </pre>
        *
-       * <code>optional string package_name = 1;</code>
-       */
-      public boolean hasPackageName() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <pre>
-       * If set then it overrides the java_package and package.
-       * </pre>
-       *
-       * <code>optional string package_name = 1;</code>
+       * <code>string package_name = 1;</code>
        */
       public java.lang.String getPackageName() {
         java.lang.Object ref = packageName_;
@@ -739,9 +668,7 @@ public final class Scalapb {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            packageName_ = s;
-          }
+          packageName_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -752,7 +679,7 @@ public final class Scalapb {
        * If set then it overrides the java_package and package.
        * </pre>
        *
-       * <code>optional string package_name = 1;</code>
+       * <code>string package_name = 1;</code>
        */
       public com.google.protobuf.ByteString
           getPackageNameBytes() {
@@ -772,14 +699,14 @@ public final class Scalapb {
        * If set then it overrides the java_package and package.
        * </pre>
        *
-       * <code>optional string package_name = 1;</code>
+       * <code>string package_name = 1;</code>
        */
       public Builder setPackageName(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000001;
+  
         packageName_ = value;
         onChanged();
         return this;
@@ -789,10 +716,10 @@ public final class Scalapb {
        * If set then it overrides the java_package and package.
        * </pre>
        *
-       * <code>optional string package_name = 1;</code>
+       * <code>string package_name = 1;</code>
        */
       public Builder clearPackageName() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         packageName_ = getDefaultInstance().getPackageName();
         onChanged();
         return this;
@@ -802,14 +729,15 @@ public final class Scalapb {
        * If set then it overrides the java_package and package.
        * </pre>
        *
-       * <code>optional string package_name = 1;</code>
+       * <code>string package_name = 1;</code>
        */
       public Builder setPackageNameBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000001;
+  checkByteStringIsUtf8(value);
+        
         packageName_ = value;
         onChanged();
         return this;
@@ -824,20 +752,7 @@ public final class Scalapb {
        * basename is the proto file name without the .proto extension.
        * </pre>
        *
-       * <code>optional bool flat_package = 2;</code>
-       */
-      public boolean hasFlatPackage() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <pre>
-       * If true, the compiler does not append the proto base file name
-       * into the generated package name. If false (the default), the
-       * generated scala package name is the package_name.basename where
-       * basename is the proto file name without the .proto extension.
-       * </pre>
-       *
-       * <code>optional bool flat_package = 2;</code>
+       * <code>bool flat_package = 2;</code>
        */
       public boolean getFlatPackage() {
         return flatPackage_;
@@ -850,10 +765,10 @@ public final class Scalapb {
        * basename is the proto file name without the .proto extension.
        * </pre>
        *
-       * <code>optional bool flat_package = 2;</code>
+       * <code>bool flat_package = 2;</code>
        */
       public Builder setFlatPackage(boolean value) {
-        bitField0_ |= 0x00000002;
+        
         flatPackage_ = value;
         onChanged();
         return this;
@@ -866,10 +781,10 @@ public final class Scalapb {
        * basename is the proto file name without the .proto extension.
        * </pre>
        *
-       * <code>optional bool flat_package = 2;</code>
+       * <code>bool flat_package = 2;</code>
        */
       public Builder clearFlatPackage() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        
         flatPackage_ = false;
         onChanged();
         return this;
@@ -1007,7 +922,8 @@ public final class Scalapb {
         if (value == null) {
     throw new NullPointerException();
   }
-  ensureImportIsMutable();
+  checkByteStringIsUtf8(value);
+        ensureImportIsMutable();
         import_.add(value);
         onChanged();
         return this;
@@ -1015,7 +931,7 @@ public final class Scalapb {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       @java.lang.Override
@@ -1038,7 +954,7 @@ public final class Scalapb {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<ScalaPbOptions>
+    private static final com.google.protobuf.Parser<ScalaPbOptions>
         PARSER = new com.google.protobuf.AbstractParser<ScalaPbOptions>() {
       @java.lang.Override
       public ScalaPbOptions parsePartialFrom(
@@ -1145,16 +1061,16 @@ public final class Scalapb {
               done = true;
               break;
             case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
+              java.lang.String s = input.readStringRequireUtf8();
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
                 extends_ = new com.google.protobuf.LazyStringArrayList();
                 mutable_bitField0_ |= 0x00000001;
               }
-              extends_.add(bs);
+              extends_.add(s);
               break;
             }
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -1678,7 +1594,8 @@ public final class Scalapb {
         if (value == null) {
     throw new NullPointerException();
   }
-  ensureExtendsIsMutable();
+  checkByteStringIsUtf8(value);
+        ensureExtendsIsMutable();
         extends_.add(value);
         onChanged();
         return this;
@@ -1686,7 +1603,7 @@ public final class Scalapb {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       @java.lang.Override
@@ -1709,7 +1626,7 @@ public final class Scalapb {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<MessageOptions>
+    private static final com.google.protobuf.Parser<MessageOptions>
         PARSER = new com.google.protobuf.AbstractParser<MessageOptions>() {
       @java.lang.Override
       public MessageOptions parsePartialFrom(
@@ -1741,15 +1658,11 @@ public final class Scalapb {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional string type = 1;</code>
-     */
-    boolean hasType();
-    /**
-     * <code>optional string type = 1;</code>
+     * <code>string type = 1;</code>
      */
     java.lang.String getType();
     /**
-     * <code>optional string type = 1;</code>
+     * <code>string type = 1;</code>
      */
     com.google.protobuf.ByteString
         getTypeBytes();
@@ -1795,13 +1708,13 @@ public final class Scalapb {
               done = true;
               break;
             case 10: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000001;
-              type_ = bs;
+              java.lang.String s = input.readStringRequireUtf8();
+
+              type_ = s;
               break;
             }
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -1832,17 +1745,10 @@ public final class Scalapb {
               org.mlflow.scalapb_interface.Scalapb.FieldOptions.class, org.mlflow.scalapb_interface.Scalapb.FieldOptions.Builder.class);
     }
 
-    private int bitField0_;
     public static final int TYPE_FIELD_NUMBER = 1;
     private volatile java.lang.Object type_;
     /**
-     * <code>optional string type = 1;</code>
-     */
-    public boolean hasType() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <code>optional string type = 1;</code>
+     * <code>string type = 1;</code>
      */
     public java.lang.String getType() {
       java.lang.Object ref = type_;
@@ -1852,14 +1758,12 @@ public final class Scalapb {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          type_ = s;
-        }
+        type_ = s;
         return s;
       }
     }
     /**
-     * <code>optional string type = 1;</code>
+     * <code>string type = 1;</code>
      */
     public com.google.protobuf.ByteString
         getTypeBytes() {
@@ -1889,7 +1793,7 @@ public final class Scalapb {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (!getTypeBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, type_);
       }
       unknownFields.writeTo(output);
@@ -1901,7 +1805,7 @@ public final class Scalapb {
       if (size != -1) return size;
 
       size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+      if (!getTypeBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, type_);
       }
       size += unknownFields.getSerializedSize();
@@ -1920,11 +1824,8 @@ public final class Scalapb {
       org.mlflow.scalapb_interface.Scalapb.FieldOptions other = (org.mlflow.scalapb_interface.Scalapb.FieldOptions) obj;
 
       boolean result = true;
-      result = result && (hasType() == other.hasType());
-      if (hasType()) {
-        result = result && getType()
-            .equals(other.getType());
-      }
+      result = result && getType()
+          .equals(other.getType());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -1936,10 +1837,8 @@ public final class Scalapb {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasType()) {
-        hash = (37 * hash) + TYPE_FIELD_NUMBER;
-        hash = (53 * hash) + getType().hashCode();
-      }
+      hash = (37 * hash) + TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + getType().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2074,7 +1973,7 @@ public final class Scalapb {
       public Builder clear() {
         super.clear();
         type_ = "";
-        bitField0_ = (bitField0_ & ~0x00000001);
+
         return this;
       }
 
@@ -2101,13 +2000,7 @@ public final class Scalapb {
       @java.lang.Override
       public org.mlflow.scalapb_interface.Scalapb.FieldOptions buildPartial() {
         org.mlflow.scalapb_interface.Scalapb.FieldOptions result = new org.mlflow.scalapb_interface.Scalapb.FieldOptions(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
         result.type_ = type_;
-        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -2156,8 +2049,7 @@ public final class Scalapb {
 
       public Builder mergeFrom(org.mlflow.scalapb_interface.Scalapb.FieldOptions other) {
         if (other == org.mlflow.scalapb_interface.Scalapb.FieldOptions.getDefaultInstance()) return this;
-        if (other.hasType()) {
-          bitField0_ |= 0x00000001;
+        if (!other.getType().isEmpty()) {
           type_ = other.type_;
           onChanged();
         }
@@ -2189,17 +2081,10 @@ public final class Scalapb {
         }
         return this;
       }
-      private int bitField0_;
 
       private java.lang.Object type_ = "";
       /**
-       * <code>optional string type = 1;</code>
-       */
-      public boolean hasType() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>optional string type = 1;</code>
+       * <code>string type = 1;</code>
        */
       public java.lang.String getType() {
         java.lang.Object ref = type_;
@@ -2207,16 +2092,14 @@ public final class Scalapb {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            type_ = s;
-          }
+          type_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>optional string type = 1;</code>
+       * <code>string type = 1;</code>
        */
       public com.google.protobuf.ByteString
           getTypeBytes() {
@@ -2232,36 +2115,37 @@ public final class Scalapb {
         }
       }
       /**
-       * <code>optional string type = 1;</code>
+       * <code>string type = 1;</code>
        */
       public Builder setType(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000001;
+  
         type_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string type = 1;</code>
+       * <code>string type = 1;</code>
        */
       public Builder clearType() {
-        bitField0_ = (bitField0_ & ~0x00000001);
+        
         type_ = getDefaultInstance().getType();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string type = 1;</code>
+       * <code>string type = 1;</code>
        */
       public Builder setTypeBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000001;
+  checkByteStringIsUtf8(value);
+        
         type_ = value;
         onChanged();
         return this;
@@ -2269,7 +2153,7 @@ public final class Scalapb {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       @java.lang.Override
@@ -2292,7 +2176,7 @@ public final class Scalapb {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<FieldOptions>
+    private static final com.google.protobuf.Parser<FieldOptions>
         PARSER = new com.google.protobuf.AbstractParser<FieldOptions>() {
       @java.lang.Override
       public FieldOptions parsePartialFrom(
@@ -2402,7 +2286,7 @@ public final class Scalapb {
       "ptions\030\374\007 \001(\0132\027.scalapb.MessageOptions:D" +
       "\n\005field\022\035.google.protobuf.FieldOptions\030\374" +
       "\007 \001(\0132\025.scalapb.FieldOptionsB\036\n\034org.mlfl" +
-      "ow.scalapb_interface"
+      "ow.scalapb_interfaceb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

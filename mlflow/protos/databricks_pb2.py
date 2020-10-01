@@ -20,9 +20,9 @@ from .scalapb import scalapb_pb2 as scalapb_dot_scalapb__pb2
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='databricks.proto',
   package='mlflow',
-  syntax='proto2',
+  syntax='proto3',
   serialized_options=_b('\n#com.databricks.api.proto.databricks\342?\002\020\001'),
-  serialized_pb=_b('\n\x10\x64\x61tabricks.proto\x12\x06mlflow\x1a google/protobuf/descriptor.proto\x1a\x15scalapb/scalapb.proto\"\xcd\x01\n\x14\x44\x61tabricksRpcOptions\x12\'\n\tendpoints\x18\x01 \x03(\x0b\x32\x14.mlflow.HttpEndpoint\x12&\n\nvisibility\x18\x02 \x01(\x0e\x32\x12.mlflow.Visibility\x12&\n\x0b\x65rror_codes\x18\x03 \x03(\x0e\x32\x11.mlflow.ErrorCode\x12%\n\nrate_limit\x18\x04 \x01(\x0b\x32\x11.mlflow.RateLimit\x12\x15\n\rrpc_doc_title\x18\x05 \x01(\t\"U\n\x0cHttpEndpoint\x12\x14\n\x06method\x18\x01 \x01(\t:\x04POST\x12\x0c\n\x04path\x18\x02 \x01(\t\x12!\n\x05since\x18\x03 \x01(\x0b\x32\x12.mlflow.ApiVersion\"*\n\nApiVersion\x12\r\n\x05major\x18\x01 \x01(\x05\x12\r\n\x05minor\x18\x02 \x01(\x05\"@\n\tRateLimit\x12\x11\n\tmax_burst\x18\x01 \x01(\x03\x12 \n\x18max_sustained_per_second\x18\x02 \x01(\x03\"\x93\x01\n\x15\x44ocumentationMetadata\x12\x11\n\tdocstring\x18\x01 \x01(\t\x12\x10\n\x08lead_doc\x18\x02 \x01(\t\x12&\n\nvisibility\x18\x03 \x01(\x0e\x32\x12.mlflow.Visibility\x12\x1b\n\x13original_proto_path\x18\x04 \x03(\t\x12\x10\n\x08position\x18\x05 \x01(\x05\"n\n\x1f\x44\x61tabricksServiceExceptionProto\x12%\n\nerror_code\x18\x01 \x01(\x0e\x32\x11.mlflow.ErrorCode\x12\x0f\n\x07message\x18\x02 \x01(\t\x12\x13\n\x0bstack_trace\x18\x03 \x01(\t*?\n\nVisibility\x12\n\n\x06PUBLIC\x10\x01\x12\x0c\n\x08INTERNAL\x10\x02\x12\x17\n\x13PUBLIC_UNDOCUMENTED\x10\x03*\xf6\x04\n\tErrorCode\x12\x12\n\x0eINTERNAL_ERROR\x10\x01\x12\x1b\n\x17TEMPORARILY_UNAVAILABLE\x10\x02\x12\x0c\n\x08IO_ERROR\x10\x03\x12\x0f\n\x0b\x42\x41\x44_REQUEST\x10\x04\x12\x1c\n\x17INVALID_PARAMETER_VALUE\x10\xe8\x07\x12\x17\n\x12\x45NDPOINT_NOT_FOUND\x10\xe9\x07\x12\x16\n\x11MALFORMED_REQUEST\x10\xea\x07\x12\x12\n\rINVALID_STATE\x10\xeb\x07\x12\x16\n\x11PERMISSION_DENIED\x10\xec\x07\x12\x15\n\x10\x46\x45\x41TURE_DISABLED\x10\xed\x07\x12\x1a\n\x15\x43USTOMER_UNAUTHORIZED\x10\xee\x07\x12\x1b\n\x16REQUEST_LIMIT_EXCEEDED\x10\xef\x07\x12\x1d\n\x18INVALID_STATE_TRANSITION\x10\xd1\x0f\x12\x1b\n\x16\x43OULD_NOT_ACQUIRE_LOCK\x10\xd2\x0f\x12\x1c\n\x17RESOURCE_ALREADY_EXISTS\x10\xb9\x17\x12\x1c\n\x17RESOURCE_DOES_NOT_EXIST\x10\xba\x17\x12\x13\n\x0eQUOTA_EXCEEDED\x10\xa1\x1f\x12\x1c\n\x17MAX_BLOCK_SIZE_EXCEEDED\x10\xa2\x1f\x12\x1b\n\x16MAX_READ_SIZE_EXCEEDED\x10\xa3\x1f\x12\x13\n\x0e\x44RY_RUN_FAILED\x10\x89\'\x12\x1c\n\x17RESOURCE_LIMIT_EXCEEDED\x10\x8a\'\x12\x18\n\x13\x44IRECTORY_NOT_EMPTY\x10\xf1.\x12\x18\n\x13\x44IRECTORY_PROTECTED\x10\xf2.\x12\x1f\n\x1aMAX_NOTEBOOK_SIZE_EXCEEDED\x10\xf3.:G\n\nvisibility\x12\x1d.google.protobuf.FieldOptions\x18\xee\x90\x03 \x01(\x0e\x32\x12.mlflow.Visibility::\n\x11validate_required\x12\x1d.google.protobuf.FieldOptions\x18\xef\x90\x03 \x01(\x08:4\n\x0bjson_inline\x12\x1d.google.protobuf.FieldOptions\x18\xf0\x90\x03 \x01(\x08:1\n\x08json_map\x12\x1d.google.protobuf.FieldOptions\x18\xf1\x90\x03 \x01(\x08:Q\n\tfield_doc\x12\x1d.google.protobuf.FieldOptions\x18\xf2\x90\x03 \x03(\x0b\x32\x1d.mlflow.DocumentationMetadata:K\n\x03rpc\x12\x1e.google.protobuf.MethodOptions\x18\xee\x90\x03 \x01(\x0b\x32\x1c.mlflow.DatabricksRpcOptions:S\n\nmethod_doc\x12\x1e.google.protobuf.MethodOptions\x18\xf2\x90\x03 \x03(\x0b\x32\x1d.mlflow.DocumentationMetadata:U\n\x0bmessage_doc\x12\x1f.google.protobuf.MessageOptions\x18\xf2\x90\x03 \x03(\x0b\x32\x1d.mlflow.DocumentationMetadata:U\n\x0bservice_doc\x12\x1f.google.protobuf.ServiceOptions\x18\xf2\x90\x03 \x03(\x0b\x32\x1d.mlflow.DocumentationMetadata:O\n\x08\x65num_doc\x12\x1c.google.protobuf.EnumOptions\x18\xf2\x90\x03 \x03(\x0b\x32\x1d.mlflow.DocumentationMetadata:V\n\x15\x65num_value_visibility\x12!.google.protobuf.EnumValueOptions\x18\xee\x90\x03 \x01(\x0e\x32\x12.mlflow.Visibility:Z\n\x0e\x65num_value_doc\x12!.google.protobuf.EnumValueOptions\x18\xf2\x90\x03 \x03(\x0b\x32\x1d.mlflow.DocumentationMetadataB*\n#com.databricks.api.proto.databricks\xe2?\x02\x10\x01')
+  serialized_pb=_b('\n\x10\x64\x61tabricks.proto\x12\x06mlflow\x1a google/protobuf/descriptor.proto\x1a\x15scalapb/scalapb.proto\"\xcd\x01\n\x14\x44\x61tabricksRpcOptions\x12\'\n\tendpoints\x18\x01 \x03(\x0b\x32\x14.mlflow.HttpEndpoint\x12&\n\nvisibility\x18\x02 \x01(\x0e\x32\x12.mlflow.Visibility\x12&\n\x0b\x65rror_codes\x18\x03 \x03(\x0e\x32\x11.mlflow.ErrorCode\x12%\n\nrate_limit\x18\x04 \x01(\x0b\x32\x11.mlflow.RateLimit\x12\x15\n\rrpc_doc_title\x18\x05 \x01(\t\"O\n\x0cHttpEndpoint\x12\x0e\n\x06method\x18\x01 \x01(\t\x12\x0c\n\x04path\x18\x02 \x01(\t\x12!\n\x05since\x18\x03 \x01(\x0b\x32\x12.mlflow.ApiVersion\"*\n\nApiVersion\x12\r\n\x05major\x18\x01 \x01(\x05\x12\r\n\x05minor\x18\x02 \x01(\x05\"@\n\tRateLimit\x12\x11\n\tmax_burst\x18\x01 \x01(\x03\x12 \n\x18max_sustained_per_second\x18\x02 \x01(\x03\"\x93\x01\n\x15\x44ocumentationMetadata\x12\x11\n\tdocstring\x18\x01 \x01(\t\x12\x10\n\x08lead_doc\x18\x02 \x01(\t\x12&\n\nvisibility\x18\x03 \x01(\x0e\x32\x12.mlflow.Visibility\x12\x1b\n\x13original_proto_path\x18\x04 \x03(\t\x12\x10\n\x08position\x18\x05 \x01(\x05\"n\n\x1f\x44\x61tabricksServiceExceptionProto\x12%\n\nerror_code\x18\x01 \x01(\x0e\x32\x11.mlflow.ErrorCode\x12\x0f\n\x07message\x18\x02 \x01(\t\x12\x13\n\x0bstack_trace\x18\x03 \x01(\t*?\n\nVisibility\x12\n\n\x06PUBLIC\x10\x00\x12\x0c\n\x08INTERNAL\x10\x01\x12\x17\n\x13PUBLIC_UNDOCUMENTED\x10\x02*\xf6\x04\n\tErrorCode\x12\x12\n\x0eINTERNAL_ERROR\x10\x00\x12\x1b\n\x17TEMPORARILY_UNAVAILABLE\x10\x01\x12\x0c\n\x08IO_ERROR\x10\x02\x12\x0f\n\x0b\x42\x41\x44_REQUEST\x10\x03\x12\x1c\n\x17INVALID_PARAMETER_VALUE\x10\xe8\x07\x12\x17\n\x12\x45NDPOINT_NOT_FOUND\x10\xe9\x07\x12\x16\n\x11MALFORMED_REQUEST\x10\xea\x07\x12\x12\n\rINVALID_STATE\x10\xeb\x07\x12\x16\n\x11PERMISSION_DENIED\x10\xec\x07\x12\x15\n\x10\x46\x45\x41TURE_DISABLED\x10\xed\x07\x12\x1a\n\x15\x43USTOMER_UNAUTHORIZED\x10\xee\x07\x12\x1b\n\x16REQUEST_LIMIT_EXCEEDED\x10\xef\x07\x12\x1d\n\x18INVALID_STATE_TRANSITION\x10\xd1\x0f\x12\x1b\n\x16\x43OULD_NOT_ACQUIRE_LOCK\x10\xd2\x0f\x12\x1c\n\x17RESOURCE_ALREADY_EXISTS\x10\xb9\x17\x12\x1c\n\x17RESOURCE_DOES_NOT_EXIST\x10\xba\x17\x12\x13\n\x0eQUOTA_EXCEEDED\x10\xa1\x1f\x12\x1c\n\x17MAX_BLOCK_SIZE_EXCEEDED\x10\xa2\x1f\x12\x1b\n\x16MAX_READ_SIZE_EXCEEDED\x10\xa3\x1f\x12\x13\n\x0e\x44RY_RUN_FAILED\x10\x89\'\x12\x1c\n\x17RESOURCE_LIMIT_EXCEEDED\x10\x8a\'\x12\x18\n\x13\x44IRECTORY_NOT_EMPTY\x10\xf1.\x12\x18\n\x13\x44IRECTORY_PROTECTED\x10\xf2.\x12\x1f\n\x1aMAX_NOTEBOOK_SIZE_EXCEEDED\x10\xf3.:G\n\nvisibility\x12\x1d.google.protobuf.FieldOptions\x18\xee\x90\x03 \x01(\x0e\x32\x12.mlflow.Visibility::\n\x11validate_required\x12\x1d.google.protobuf.FieldOptions\x18\xef\x90\x03 \x01(\x08:4\n\x0bjson_inline\x12\x1d.google.protobuf.FieldOptions\x18\xf0\x90\x03 \x01(\x08:1\n\x08json_map\x12\x1d.google.protobuf.FieldOptions\x18\xf1\x90\x03 \x01(\x08:Q\n\tfield_doc\x12\x1d.google.protobuf.FieldOptions\x18\xf2\x90\x03 \x03(\x0b\x32\x1d.mlflow.DocumentationMetadata:K\n\x03rpc\x12\x1e.google.protobuf.MethodOptions\x18\xee\x90\x03 \x01(\x0b\x32\x1c.mlflow.DatabricksRpcOptions:S\n\nmethod_doc\x12\x1e.google.protobuf.MethodOptions\x18\xf2\x90\x03 \x03(\x0b\x32\x1d.mlflow.DocumentationMetadata:U\n\x0bmessage_doc\x12\x1f.google.protobuf.MessageOptions\x18\xf2\x90\x03 \x03(\x0b\x32\x1d.mlflow.DocumentationMetadata:U\n\x0bservice_doc\x12\x1f.google.protobuf.ServiceOptions\x18\xf2\x90\x03 \x03(\x0b\x32\x1d.mlflow.DocumentationMetadata:O\n\x08\x65num_doc\x12\x1c.google.protobuf.EnumOptions\x18\xf2\x90\x03 \x03(\x0b\x32\x1d.mlflow.DocumentationMetadata:V\n\x15\x65num_value_visibility\x12!.google.protobuf.EnumValueOptions\x18\xee\x90\x03 \x01(\x0e\x32\x12.mlflow.Visibility:Z\n\x0e\x65num_value_doc\x12!.google.protobuf.EnumValueOptions\x18\xf2\x90\x03 \x03(\x0b\x32\x1d.mlflow.DocumentationMetadataB*\n#com.databricks.api.proto.databricks\xe2?\x02\x10\x01\x62\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_descriptor__pb2.DESCRIPTOR,scalapb_dot_scalapb__pb2.DESCRIPTOR,])
 
@@ -33,22 +33,22 @@ _VISIBILITY = _descriptor.EnumDescriptor(
   file=DESCRIPTOR,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='PUBLIC', index=0, number=1,
+      name='PUBLIC', index=0, number=0,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='INTERNAL', index=1, number=2,
+      name='INTERNAL', index=1, number=1,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='PUBLIC_UNDOCUMENTED', index=2, number=3,
+      name='PUBLIC_UNDOCUMENTED', index=2, number=2,
       serialized_options=None,
       type=None),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=752,
-  serialized_end=815,
+  serialized_start=746,
+  serialized_end=809,
 )
 _sym_db.RegisterEnumDescriptor(_VISIBILITY)
 
@@ -60,19 +60,19 @@ _ERRORCODE = _descriptor.EnumDescriptor(
   file=DESCRIPTOR,
   values=[
     _descriptor.EnumValueDescriptor(
-      name='INTERNAL_ERROR', index=0, number=1,
+      name='INTERNAL_ERROR', index=0, number=0,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='TEMPORARILY_UNAVAILABLE', index=1, number=2,
+      name='TEMPORARILY_UNAVAILABLE', index=1, number=1,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='IO_ERROR', index=2, number=3,
+      name='IO_ERROR', index=2, number=2,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
-      name='BAD_REQUEST', index=3, number=4,
+      name='BAD_REQUEST', index=3, number=3,
       serialized_options=None,
       type=None),
     _descriptor.EnumValueDescriptor(
@@ -158,19 +158,19 @@ _ERRORCODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=818,
-  serialized_end=1448,
+  serialized_start=812,
+  serialized_end=1442,
 )
 _sym_db.RegisterEnumDescriptor(_ERRORCODE)
 
 ErrorCode = enum_type_wrapper.EnumTypeWrapper(_ERRORCODE)
-PUBLIC = 1
-INTERNAL = 2
-PUBLIC_UNDOCUMENTED = 3
-INTERNAL_ERROR = 1
-TEMPORARILY_UNAVAILABLE = 2
-IO_ERROR = 3
-BAD_REQUEST = 4
+PUBLIC = 0
+INTERNAL = 1
+PUBLIC_UNDOCUMENTED = 2
+INTERNAL_ERROR = 0
+TEMPORARILY_UNAVAILABLE = 1
+IO_ERROR = 2
+BAD_REQUEST = 3
 INVALID_PARAMETER_VALUE = 1000
 ENDPOINT_NOT_FOUND = 1001
 MALFORMED_REQUEST = 1002
@@ -196,7 +196,7 @@ VISIBILITY_FIELD_NUMBER = 51310
 visibility = _descriptor.FieldDescriptor(
   name='visibility', full_name='mlflow.visibility', index=0,
   number=51310, type=14, cpp_type=8, label=1,
-  has_default_value=False, default_value=1,
+  has_default_value=False, default_value=0,
   message_type=None, enum_type=None, containing_type=None,
   is_extension=True, extension_scope=None,
   serialized_options=None, file=DESCRIPTOR)
@@ -276,7 +276,7 @@ ENUM_VALUE_VISIBILITY_FIELD_NUMBER = 51310
 enum_value_visibility = _descriptor.FieldDescriptor(
   name='enum_value_visibility', full_name='mlflow.enum_value_visibility', index=10,
   number=51310, type=14, cpp_type=8, label=1,
-  has_default_value=False, default_value=1,
+  has_default_value=False, default_value=0,
   message_type=None, enum_type=None, containing_type=None,
   is_extension=True, extension_scope=None,
   serialized_options=None, file=DESCRIPTOR)
@@ -307,7 +307,7 @@ _DATABRICKSRPCOPTIONS = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='visibility', full_name='mlflow.DatabricksRpcOptions.visibility', index=1,
       number=2, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -340,7 +340,7 @@ _DATABRICKSRPCOPTIONS = _descriptor.Descriptor(
   ],
   serialized_options=None,
   is_extendable=False,
-  syntax='proto2',
+  syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
@@ -359,7 +359,7 @@ _HTTPENDPOINT = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='method', full_name='mlflow.HttpEndpoint.method', index=0,
       number=1, type=9, cpp_type=9, label=1,
-      has_default_value=True, default_value=_b("POST").decode('utf-8'),
+      has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -385,12 +385,12 @@ _HTTPENDPOINT = _descriptor.Descriptor(
   ],
   serialized_options=None,
   is_extendable=False,
-  syntax='proto2',
+  syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
   serialized_start=293,
-  serialized_end=378,
+  serialized_end=372,
 )
 
 
@@ -423,12 +423,12 @@ _APIVERSION = _descriptor.Descriptor(
   ],
   serialized_options=None,
   is_extendable=False,
-  syntax='proto2',
+  syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=380,
-  serialized_end=422,
+  serialized_start=374,
+  serialized_end=416,
 )
 
 
@@ -461,12 +461,12 @@ _RATELIMIT = _descriptor.Descriptor(
   ],
   serialized_options=None,
   is_extendable=False,
-  syntax='proto2',
+  syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=424,
-  serialized_end=488,
+  serialized_start=418,
+  serialized_end=482,
 )
 
 
@@ -494,7 +494,7 @@ _DOCUMENTATIONMETADATA = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='visibility', full_name='mlflow.DocumentationMetadata.visibility', index=2,
       number=3, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -520,12 +520,12 @@ _DOCUMENTATIONMETADATA = _descriptor.Descriptor(
   ],
   serialized_options=None,
   is_extendable=False,
-  syntax='proto2',
+  syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=491,
-  serialized_end=638,
+  serialized_start=485,
+  serialized_end=632,
 )
 
 
@@ -539,7 +539,7 @@ _DATABRICKSSERVICEEXCEPTIONPROTO = _descriptor.Descriptor(
     _descriptor.FieldDescriptor(
       name='error_code', full_name='mlflow.DatabricksServiceExceptionProto.error_code', index=0,
       number=1, type=14, cpp_type=8, label=1,
-      has_default_value=False, default_value=1,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -565,12 +565,12 @@ _DATABRICKSSERVICEEXCEPTIONPROTO = _descriptor.Descriptor(
   ],
   serialized_options=None,
   is_extendable=False,
-  syntax='proto2',
+  syntax='proto3',
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=640,
-  serialized_end=750,
+  serialized_start=634,
+  serialized_end=744,
 )
 
 _DATABRICKSRPCOPTIONS.fields_by_name['endpoints'].message_type = _HTTPENDPOINT
